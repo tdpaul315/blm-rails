@@ -1,0 +1,2 @@
+class Protest < ApplicationRecord
+end 

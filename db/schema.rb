@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_232941) do
+ActiveRecord::Schema.define(version: 2020_11_12_145556) do
+
+  create_table "movements", force: :cascade do |t|
+    t.string "name"
+    t.integer "yr_started"
+    t.text "description"
+  end
+
+  create_table "protests", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.datetime "date"
+    t.integer "user_id", null: false
+    t.integer "movement_id", null: false
+    t.index ["movement_id"], name: "index_protests_on_movement_id"
+    t.index ["user_id"], name: "index_protests_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +39,12 @@ ActiveRecord::Schema.define(version: 2020_11_11_232941) do
     t.string "name"
     t.string "username"
     t.boolean "admin"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "protests", "movements"
+  add_foreign_key "protests", "users"
 end
