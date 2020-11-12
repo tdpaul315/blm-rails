@@ -43,6 +43,7 @@ group :development do
   gem 'pry'
   gem 'devise'
   gem 'omniauth-github'
+  gem 'faker'
 
 end
 
