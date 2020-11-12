@@ -1,0 +1,10 @@
+<%= form_with model: @movement, local: true do |f| %>
+    <%= f.label :name, "Movement Name" %>
+        <%= f.text_field :name, class: @movement.errors.any? ? "error-field" : nil %><br /><br />
+    <%= f.label :yr_started, "Movement Began" %>
+        <%= f.number_field :yr_started %><br /><br />
+    <%= f.label :description, "Movement Description" %>
+        <%= f.text_area :description %><br /><br />
+    <%= f.submit %>
+<% end %>
+

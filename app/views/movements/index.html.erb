@@ -1,1 +1,8 @@
-Hi there! 
+<h2> Check out our Movements Below! </h2>
+
+    <ul>
+        <% @movements.each do |m| %>
+            <li><%= link_to m.name, m %></li>
+                <p><%= m.yr_started %></p>
+        <% end %>
+    </ul>
