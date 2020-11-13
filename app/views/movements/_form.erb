@@ -1,3 +1,5 @@
+
+
 <% if @movement.errors.any? %>
         <h5 class="error"><%= @movement.errors.full_messages.to_sentence %></h5>
 <% end %>
@@ -10,6 +12,17 @@
         <%= f.number_field :yr_started %><br /><br />
     <%= f.label :description, "Movement Description" %>
         <%= f.text_area :description %><br /><br />
-    <%= f.submit %>
+            <h4>Would you link a protest to this movement?</h4>
+            <%= f.fields_for :protests do |p| %>
+                <%= p.label :name, "Protest Name" %>
+                    <%= p.text_field :name %>
+                <%= p.label :location, "Protest Location" %>
+                    <%= p.text_field :location %>
+                <%= p.label :date, "Protest Date" %>
+                    <%= p.text_field :date %>
+                <%= f. hidden_field :user_id, value: @user.id %>
+
+            <% end %>
+     <%= f.submit %>
 <% end %>
 

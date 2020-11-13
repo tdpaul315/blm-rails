@@ -14,6 +14,7 @@ class MovementsController < ApplicationController
 
     def new 
         @movement = Movement.new
+        2.times {@movement.protests.build}
     end 
 
     def create 
@@ -54,7 +55,7 @@ class MovementsController < ApplicationController
         end 
 
         def movement_params 
-            params.require(:movement).permit(:name, :yr_started, :description)
+            params.require(:movement).permit(:name, :yr_started, :description, protests_attributes: [:name, :location, :date, :user_id, :movement_id])
         end 
 
 end 

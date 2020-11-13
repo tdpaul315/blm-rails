@@ -3,18 +3,12 @@
 <% end %>
 
 
-<%= form_with model: @protest, local: true do |f| %>
+<%= form_with model: [@movement, @protest], local: true do |f| %>
     <%= f.label :name, "Protest Name" %>
         <%= f.text_field :name, class: @protest.errors.any? ? "error-field" : nil %><br /><br />
     <%= f.label :location, "Protest Location" %>
-        <%= f.number_field :location %><br /><br />
+        <%= f.text_field :location %><br /><br />
     <%= f.label :date, "Protest Date" %>
         <%= f.datetime_field :date %><br /><br />
-            <% if @protest.user.admin == true %>
-                    <%= f.label :user_id%>
-                        <%= f.number_field :user_id %><br /><br />
-                    <%= f.label :movement_id %><br /><br />
-                        <%= f.number_field :movement_id %><br /><br />
-            <% end %>
     <%= f.submit %>
 <% end %>

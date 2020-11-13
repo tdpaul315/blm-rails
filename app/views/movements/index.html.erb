@@ -1,4 +1,10 @@
-<h2> Check out our Movements Below! </h2>
+<div class="container">
+  <% if user_signed_in? %>
+        <h5 style="color:black;text-align:left"> Hi <%= current_user.name.titleize%>!</h5><br />
+  <%end%>
+</div>
+
+<h3> Check out our Movements Below! </h3>
 
     <ul>
         <% @movements.each do |m| %>
