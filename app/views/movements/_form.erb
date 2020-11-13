@@ -1,3 +1,8 @@
+<% if @movement.errors.any? %>
+        <h5 class="error"><%= @movement.errors.full_messages.to_sentence %></h5>
+<% end %>
+
+
 <%= form_with model: @movement, local: true do |f| %>
     <%= f.label :name, "Movement Name" %>
         <%= f.text_field :name, class: @movement.errors.any? ? "error-field" : nil %><br /><br />
