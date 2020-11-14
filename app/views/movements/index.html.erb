@@ -9,6 +9,11 @@
     <ul>
         <% @movements.each do |m| %>
             <li><%= link_to m.name, m %></li>
-                <p><%= m.yr_started %></p>
+                <p>Year Started:<%= m.yr_started %></p>
         <% end %>
     </ul>
+
+    <h4> Popular Movements! </h4>
+    <% Movement.more_than_five_protests.each do |p| %>
+        <li><%= link_to p.name, p %></li>
+    <% end %>

@@ -6,17 +6,13 @@ class ApplicationController < ActionController::Base
     end
 
     helper do 
-
-        def current_user
-            @user = current_user
-        end 
        
-        def verify_user
-            protest = Protest.find_by_id(params[:protest_id])
-            if current_user
-               current_user.id = protest.user_id 
-            end 
+
+        def redirect_if_not_logged_in
+            if !user_signed_in? 
+                flash[:error] = "You must be logged in to view this page."
+                redirect_to login-path 
+            end
         end 
-    end 
-                
+    end
 end
