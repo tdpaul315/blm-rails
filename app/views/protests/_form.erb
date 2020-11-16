@@ -4,12 +4,13 @@
 
 
 <%= form_with model: [@movement, @protest], local: true do |f| %>
-    <%= f.label :name, "Protest Name" %>
+    <%= f.label :name, "Protest Name" %><br>
         <%= f.text_field :name, class: @protest.errors.any? ? "error-field" : nil %><br /><br />
-    <%= f.label :location, "Protest Location" %>
+    <%= f.label :location, "Protest Location" %><br>
         <%= f.text_field :location %><br /><br />
-    <%= f.label :date, "Protest Date" %>
+    <%= f.label :date, "Protest Date" %><br>
         <%= f.text_field :date %><br /><br />
-    <%= p.hidden_field :movement_id, :value => @movements.protests.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
     <%= f.submit %>
 <% end %>

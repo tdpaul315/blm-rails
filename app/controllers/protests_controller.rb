@@ -1,11 +1,12 @@
 class ProtestsController < ApplicationController 
 
-    before_action :set_protest, only: [ :show]
+    before_action :set_protest, only: [:show, :edit, :update]
+    
 
   def index
     if params[:movement_id]
       set_movement
-      @protests = @movements.protests 
+      @protests = @movement.protests
     else
       @protests = Protest.all
     end
@@ -20,7 +21,7 @@ class ProtestsController < ApplicationController
   def new
     if params[:movement_id]
       set_movement
-      @protest = @movement.protest.build
+      @protest = @movement.protests.build
     else
       @protest = Protest.new
     end
@@ -45,9 +46,19 @@ class ProtestsController < ApplicationController
   end
 
   def edit
+    if params[:movement_id]
+      set_movement
+    end
   end
 
   def update
+    if params[:movement_id]
+      set_movement
+      @protest.update(protest_params)
+      redirect_to movement_protest_path(@movement, @protest)
+    else 
+          render :edit
+    end
   end
 
   def destroy

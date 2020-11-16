@@ -6,13 +6,15 @@
         <blockquote class="w3-text-black"><%= @movement.description %></blockquote>
         <hr><h5><b>Upcoming Demonstrations:</b></h5>
             <% @movement.protests.each do |p| %>
-              <p class="w3-text-black"><%=link_to p.name, movement_protest_path(p) %></p>
+              <p class="w3-text-black"><%=link_to p.name, movement_protest_path(@movement,p) %></p>
         <% end %>
     <div class="w3-center">
         <iframe src="https://giphy.com/embed/2kP5J5IwXHwowkjema" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     </div>
     <div class=" w3-bottomleft">
     <!-- if current_user.id == @movement.user_id -->
+        <h6 class="w3-text-deep-orange"><%= link_to 'Organize Protest for this Movement', new_movement_protest_path(@movement, @protest) %></h6>
+        <h6 class="w3-text-deep-orange"><%= link_to 'View All Protests', movement_protests_path(@movement) %></h6>
         <h6><%= link_to 'Edit Movement', edit_movement_path(@movement) %></h6>
         <h6><%= link_to "Delete Movement", @movement, method: :delete, data:{confirm: "Do you really want to delete me?"} %></h6>
     <!-- end -->

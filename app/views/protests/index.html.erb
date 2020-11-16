@@ -1,11 +1,9 @@
-<% if @movement %>
-    <h1><%= link_to @movement.name, movement_path(@movement)  %>'s Demonstrations:</h1>
-<% else %>
-    <h1>Demonstrations Past, Present & Future:</h1>
-<% end %>
 
-<ul>
-<% @protests.each do |p| %>
-    <li><%= link_to p.name, movement_protest_path(@movement, p) %></li>
-<% end %>
-</ul>
+    <h1>Demonstrations Past, Present & Future:</h1>
+
+
+    <ul>
+    <% @protests.each do |p| %>
+        <li><%= link_to p.name, movement_protest_path(@movement, p) %></li>
+    <% end %>
+    </ul>
