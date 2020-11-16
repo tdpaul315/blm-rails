@@ -3,16 +3,19 @@ class MovementsController < ApplicationController
     before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
     def index 
+        redirect_if_not_logged_in
         @movements = Movement.all 
     end 
 
     def show 
+        redirect_if_not_logged_in
         if !@movement
             redirect_to movements_path
         end 
     end 
 
     def new 
+        redirect_if_not_logged_in
         @movement = Movement.new
         2.times {@movement.protests.build}
     end 
@@ -27,6 +30,7 @@ class MovementsController < ApplicationController
     end 
 
     def edit 
+        redirect_if_not_logged_in
         if !@movement
             redirect_to movements_path
         end  
@@ -55,7 +59,7 @@ class MovementsController < ApplicationController
         end 
 
         def movement_params 
-            params.require(:movement).permit(:name, :yr_started, :description, protests_attributes: [:name, :location, :date, :user_id, :movement_id])
+            params.require(:movement).permit(:name, :yr_started, :description, protests_attributes: [:name, :location, :date, :user_id, :movement_id, :certify])
         end 
 
 end 

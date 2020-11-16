@@ -7,23 +7,30 @@
 
 
     <%= form_with model: @movement, local: true do |f| %>
-        <%= f.label :name, "Movement Name" %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.label :name, "What is the Movement's Name?*" %>
             <%= f.text_field :name, class: @movement.errors.any? ? "error-field" : nil %><br>
-        <%= f.label :yr_started, "Movement Began" %>
+            <hr><h4 class="w3-center"> Tell Us More About the Movement </h4>
+        <%= f.label :yr_started, "When did the Movement Begin*?" %><br>
             <%= f.number_field :yr_started %><br>
-        <%= f.label :description, "Movement Description" %>
-            <%= f.text_area :description %><br>
-                <h4>Would you link a protest to this movement?</h4>
-                <%= f.fields_for :protests do |p| %>
-                        <%= p.hidden_field :user_id, :value => current_user.id %>
-                    <%= p.label :name, "Protest Name" %>
-                        <%= p.text_field :name %>
-                    <%= p.label :location, "Protest Location" %>
-                        <%= p.text_field :location %>
-                    <%= p.label :date, "Protest Date" %>
-                        <%= p.text_field :date %>
-                <% end %>
-         <%= f.submit %>
+        <%= f.label :description, "Movement Description*" %><br>
+            <%= f.text_area :description %>
+                <p class="w3-tiny w3-text-red"> 1000 character maximum </p><hr>
+                    <h4 class="w3-center">Would you like to organize a protest for this movement?</h4>
+                        <p class="w3-small w3-center">You may organize up to (2). Enter the information below:</p>
+                    <%= f.fields_for :protests do |p| %>
+                            <%= p.hidden_field :user_id, :value => current_user.id %>
+                        <%= p.label :name, "Protest Name*" %><br>
+                            <%= p.text_field :name %><br><br>
+                        <%= p.label :location, "Protest Location*" %><br>
+                            <%= p.text_field :location %><br><br>
+                        <%= p.label :date, "Protest Date*" %><br>
+                            <%= p.text_field :date %><br><br>
+                        <p class="w3-small">*I hereby certify that the above statements are true and correct to the best of my knowledge. I understand that a false submission or a submission that does not align with the morals and beliefs of BLM as stated in the organization bi-laws may disqualify me from future involvement in BLM and subsidaries. I have reviewed the Declaration of Intent form filed with the Board of Trustees and I hereby certify its accuracy.</p>
+                            <%= p.check_box :certify, required: true %><br>
+                    <% end %>
+         <%= f.submit %><br><br>
+         <p class="w3-tiny w3-text-red"> *denotes a required field</p>
     <% end %>
 </body>
 

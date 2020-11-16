@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_145556) do
+ActiveRecord::Schema.define(version: 2020_11_16_063014) do
 
   create_table "movements", force: :cascade do |t|
     t.string "name"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 2020_11_12_145556) do
   create_table "protests", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.datetime "date"
+    t.string "date"
     t.integer "user_id", null: false
     t.integer "movement_id", null: false
+    t.boolean "certify"
     t.index ["movement_id"], name: "index_protests_on_movement_id"
     t.index ["user_id"], name: "index_protests_on_user_id"
   end

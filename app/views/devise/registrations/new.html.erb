@@ -1,8 +1,8 @@
 
 
-<h2>Sign Up</h2>
+<h2 class="w3-container">Sign Up</h2><hr>
 
-
+<div class="w3-container">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -33,11 +33,17 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div><br />
+<h4> FOR ADMINS ONLY </h4>
+    <div class="field">
+      <%= f.label :admin %><br />
+      <%= f.check_box :admin %>
+    </div><br />
 
     <div class="actions">
       <%= f.submit "Sign Up" %>
     </div>
   <% end %>
 
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+</div>
 

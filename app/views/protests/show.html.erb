@@ -1,1 +1,17 @@
-Protest Me Babbbby 
+<body class="w3-container">
+    
+
+    <h4><b><%= @movement.protests.name %></b></h4>
+        <blockquote><%= @movement.protests.date %></blockquote>
+               <p class="w3-text-black"><%=link_to "Back to Movement", movement_path %></p>
+            <div class="w3-center">
+                <iframe src="https://giphy.com/embed/3ohjVabojNBmsqeqg8" width="380" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/heyarnold-hey-arnold-nicksplat-3ohjVabojNBmsqeqg8">via GIPHY</a></p>
+            </div>
+                    <div class=" w3-row w3-black w3-padding-64">
+                    <!-- if current_user.id == @movement.user_id -->
+                        <h6><%= link_to 'Participant Sign Up', participant_sign_up_path %></h6>
+                        <h6><%= link_to "Volunteer Sign Up", volunteer_sign_up_path %></h6>
+                    <!-- end -->
+                    </div>
+</body>
+ <!-- I only want the user to see the edit/delete links if the movement belongs to them -->

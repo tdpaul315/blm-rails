@@ -9,6 +9,7 @@
     <%= f.label :location, "Protest Location" %>
         <%= f.text_field :location %><br /><br />
     <%= f.label :date, "Protest Date" %>
-        <%= f.datetime_field :date %><br /><br />
+        <%= f.text_field :date %><br /><br />
+    <%= p.hidden_field :movement_id, :value => @movements.protests.id %>
     <%= f.submit %>
 <% end %>

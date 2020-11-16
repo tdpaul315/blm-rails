@@ -1,11 +1,11 @@
 class ProtestsController < ApplicationController 
 
-    before_action :set_protest, only: [:show]
+    before_action :set_protest, only: [ :show]
 
   def index
     if params[:movement_id]
       set_movement
-      @protests = @movement.protests
+      @protests = @movements.protests 
     else
       @protests = Protest.all
     end
@@ -20,7 +20,7 @@ class ProtestsController < ApplicationController
   def new
     if params[:movement_id]
       set_movement
-      @protest = @movement.protests.build
+      @protest = @movement.protest.build
     else
       @protest = Protest.new
     end
@@ -65,7 +65,7 @@ class ProtestsController < ApplicationController
     end 
 
     def protest_params 
-        params.require(:protest).permit(:name, :location, :date, :user_id, :movement_id)
+        params.require(:protest).permit(:name, :location, :date, :user_id, :movement_id, :certify)
     end 
 
 end 

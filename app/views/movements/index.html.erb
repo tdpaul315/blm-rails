@@ -1,19 +1,32 @@
-<div class="container">
+
+
+<div class="w3-container">
   <% if user_signed_in? %>
-        <h5 style="color:black;text-align:left"> Hi <%= current_user.name.titleize%>!</h5><br />
-  <%end%>
+        <h6 style="color:black;text-align:left"> Welcome back <b class="w3-text-deep-orange"><%= current_user.name.titleize%>!</b></h6>
+            
+                
+        <h4 class=" w3-container w3-center"><b>Movements</b><hr></h4>
+    <%end%>
+
+        <div class="w3-container boxed">
+           <ul class="w3-text-black w3-container w3-table w3-striped">
+                <% @movements.each do |m| %>
+                    <p><b><%= link_to m.name, m %></b></p>
+                <% end %>
+            </ul>
+                <div class="w3-right">
+                    <h6 class="w3-tiny w3-text-deep-orange"><%= link_to 'Create A New Movement', new_movement_path(@movement) %></h6>
+                    <h6 class="w3-tiny w3-text-deep-orange"><%= link_to 'Organize A Protest for Existing Movement', new_movement_protest_path(:movement_id, @protest) %></h6>
+                    <h6 class="w3-tiny w3-text-deep-orange"><%= link_to 'View All Protests', movement_protests_path(:movement_id, @protest) %></h6>
+                </div>
+        </div>
+
+                <div class="w3-center">
+                    <hr><h4> Movement of the Month! </h4>
+                    <% Movement.more_than_five_protests.each do |p| %>
+                        <p>Congratulations to <%= link_to p.name, p %> for having the most organized demonstrations out of all the movements for the month!</p><br><br>
+                        <iframe src="https://giphy.com/embed/l0MYt5jPR6QX5pnqM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    <% end %>
+                </div>
+      
 </div>
-
-<h3> Check out our Movements Below! </h3>
-
-    <ul>
-        <% @movements.each do |m| %>
-            <li><%= link_to m.name, m %></li>
-                <p>Year Started:<%= m.yr_started %></p>
-        <% end %>
-    </ul>
-
-    <h4> Popular Movements! </h4>
-    <% Movement.more_than_five_protests.each do |p| %>
-        <li><%= link_to p.name, p %></li>
-    <% end %>

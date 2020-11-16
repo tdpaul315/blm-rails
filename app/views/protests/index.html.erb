@@ -1,11 +1,11 @@
 <% if @movement %>
-    <h1><%= link_to @movement.name, movement_path(@movement)  %></h1> 
+    <h1><%= link_to @movement.name, movement_path(@movement)  %>'s Demonstrations:</h1>
+<% else %>
+    <h1>Demonstrations Past, Present & Future:</h1>
 <% end %>
 
-<h1>Upcoming Protests:</h1>
-
-
-    <% @protests.each do |d| %>
-    <% binding.pry %>
-        <li><%= link_to d.name, movement_protest_path(@movement, d) %></li>
-    <% end %>
+<ul>
+<% @protests.each do |p| %>
+    <li><%= link_to p.name, movement_protest_path(@movement, p) %></li>
+<% end %>
+</ul>
