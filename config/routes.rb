@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   root to: "movements#home"
 
   
-  get '/:anything', to: 'application#error_page'
+  
   get '/volunteer_sign_up', to: 'application#under_construction'
   get '/participant_sign_up', to: 'application#under_construction'
+  get '/:anything', to: 'application#error_page'
 end
