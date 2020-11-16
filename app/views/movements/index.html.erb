@@ -1,21 +1,21 @@
 
 
-<div class="w3-container">
+<div class="w3-container w3-text-blue">
   <% if user_signed_in? %>
-        <h6 style="color:black;text-align:left"> Welcome back <b class="w3-text-deep-orange"><%= current_user.name.titleize%>!</b></h6>
+        <h6 style="color:black;text-align:left"> Welcome back <b class="w3-text-blue"><%= current_user.name.titleize%>!</b></h6>
             
                 
-        <h4 class=" w3-container w3-center"><b>Movements</b><hr></h4>
+        <h4 class=" w3-container w3-center"><b>Our Movements</b><hr></h4>
     <%end%>
 
         <div class="w3-container">
-           <ul class="w3-text-black w3-container w3-table w3-striped">
+           <ul class="w3-text-blue w3-container w3-table w3-striped">
                 <% @movements.each do |m| %>
                     <p><b><%= link_to m.name, m %></b></p>
                 <% end %>
             </ul>
-                <div class="w3-right">
-                    <h6 class="w3-tiny w3-text-deep-orange"><%= link_to 'Create A New Movement', new_movement_path(@movement) %></h6>
+                <div class="w3-left">
+                    <h6 class="w3-tiny w3-text-blue"><%= link_to 'Create A New Movement', new_movement_path(@movement) %></h6>
                 </div>
         </div>
 

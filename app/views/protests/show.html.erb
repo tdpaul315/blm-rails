@@ -1,21 +1,21 @@
 <body class="w3-container">
   
             
-            <h4>Name: <%= @protest.name %></h4>
+    <h4><b>"<%= @protest.name %>"</b></h4>
             <h5>Location: <%= @protest.location %></h5>
             <h5>Date: <%= @protest.date %></h5>
-               <h6 class="w3-text-black"><%=link_to "Back to Movement", movement_path(@movement) %></h6>
-               <h6><%= link_to 'Edit Protest', edit_movement_protest_path(@movement, @protest) %></h6>
-               <h6><%= link_to "Delete Protest", movement_protest_path(@movement, @protest), method: :delete, data:{confirm: "Do you really want to delete me?"} %></h6>
+                <h6 class="w3-left"><%= link_to 'Participant Sign Up', participant_sign_up_path %></h6>
+                <h6 class="w3-left"><%= link_to "Volunteer Sign Up", volunteer_sign_up_path %></h6>
+            
             <div class="w3-center">
-                <iframe src="https://giphy.com/embed/3ohjVabojNBmsqeqg8" width="380" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/heyarnold-hey-arnold-nicksplat-3ohjVabojNBmsqeqg8">via GIPHY</a></p>
+                <iframe src="https://giphy.com/embed/3ohjVabojNBmsqeqg8" width="380" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
             </div>
-                   
-                    <!-- if current_user.id == @movement.user_id -->
-                        <h6><%= link_to 'Participant Sign Up', participant_sign_up_path %></h6>
-                        <h6><%= link_to "Volunteer Sign Up", volunteer_sign_up_path %></h6>
-                        <h6><%= link_to 'Back to Movements', movements_path %></h6>
-                    <!-- end -->
+                <!-- if current_user.id == @movement.protest.user_id -->
+                    <h6 class="w3-text-black"><%=link_to "Back to Movement", movement_path(@movement) %></h6>
+                    <h6><%= link_to 'Edit Protest', edit_movement_protest_path(@movement, @protest) %></h6>
+                    <h6><%= link_to "Delete Protest", movement_protest_path(@movement, @protest), method: :delete, data:{confirm: "Do you really want to delete me?"} %></h6>
+                    <h6><%= link_to 'Back to Movements', movements_path %></h6>
+                <!-- end -->
                   
 </body>
  <!-- I only want the user to see the edit/delete links if the movement belongs to them -->
