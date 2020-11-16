@@ -5,7 +5,7 @@ class Protest < ApplicationRecord
 
    validates :name, presence: true, uniqueness: true 
    validates :location, presence: true
-   validates :date, presence: true, length: { maximum: 250 }
+   validates :date, presence: true
    validates :certify, :acceptance => true
 
 end 

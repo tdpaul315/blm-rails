@@ -1,15 +1,13 @@
 
 
 <div class="w3-container w3-text-blue">
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
         <h6 style="color:black;text-align:left"> Welcome back <b class="w3-text-blue"><%= current_user.name.titleize%>!</b></h6>
-            
-                
         <h4 class=" w3-container w3-center"><b>Our Movements</b><hr></h4>
     <%end%>
 
         <div class="w3-container">
-           <ul class="w3-text-blue w3-container w3-table w3-striped">
+            <ul class="w3-text-blue w3-container w3-table w3-striped">
                 <% @movements.each do |m| %>
                     <p><b><%= link_to m.name, m %></b></p>
                 <% end %>
@@ -26,5 +24,4 @@
                         <iframe src="https://giphy.com/embed/l0MYt5jPR6QX5pnqM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                     <% end %>
                 </div>
-      
 </div>

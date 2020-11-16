@@ -26,6 +26,7 @@ class MovementsController < ApplicationController
             redirect_to movement_path(@movement)
         else 
             render :new 
+            2.times {@movement.protests.build}
         end 
     end 
 
