@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :redirect_if_not_logged_in, :redirect_if_logged_in
+    helper_method :redirect_if_not_logged_in
 
     
     def error_page
