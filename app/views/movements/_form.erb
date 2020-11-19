@@ -7,7 +7,6 @@
 
 
     <%= form_with model: @movement, local: true do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.label :name, "What is the Movement's Name?*" %>
             <%= f.text_field :name, class: @movement.errors.any? ? "error-field" : nil %><br>
             <hr><h4 class="w3-center"> Tell Us More About the Movement </h4>

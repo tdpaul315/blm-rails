@@ -6,6 +6,7 @@ class Protest < ApplicationRecord
    validates :name, presence: true, uniqueness: true 
    validates :location, presence: true
    validates :date, presence: true
-   validates :certify, :acceptance => true
+   #validates :certify, :acceptance => true
+   #modify certify option
 
 end 

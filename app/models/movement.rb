@@ -5,10 +5,15 @@ class Movement < ApplicationRecord
 
     validates :name, presence: true, uniqueness: true 
     validates :yr_started, presence: true
-    validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }
+    validates :description, presence: true, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }
 
     def self.more_than_five_protests
        self.all.map {|s| s if s.protests.count > 4}.compact
+    end 
+
+    def self.most_protests 
+        #SELECT * FROM movements ORDER BY(protests) DESC LIMIT 1
+        self.all.map {|p| p.protests.count}
     end 
     
 end 

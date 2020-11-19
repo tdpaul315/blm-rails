@@ -23,5 +23,9 @@
                         <p>Congratulations to <%= link_to p.name, p %> for having the most organized demonstrations out of all the movements for the month!</p><br><br>
                         <iframe src="https://giphy.com/embed/l0MYt5jPR6QX5pnqM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                     <% end %>
+
+                    <% Movement.most_protests.each do |movement| %>
+                        <p><%= movement %> you have the most protests!</p>
+                    <% end %>  
                 </div>
 </div>

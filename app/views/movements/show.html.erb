@@ -11,17 +11,18 @@
     <div class="w3-center">
         <iframe src="https://giphy.com/embed/2kP5J5IwXHwowkjema" width="380" height="380" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     </div><hr>
+
     <div class=" w3-bottomleft">
-    <!-- if current_user.id == @movement.user_id -->
-        <h6 class="w3-text-blue"><%= link_to 'Organize Protest for this Movement', new_movement_protest_path(@movement, @protest) %></h6>
-        <h6 class="w3-text-blue"><%= link_to 'View All Protests', movement_protests_path(@movement) %></h6>
-        <h6><%= link_to 'Edit Movement', edit_movement_path(@movement) %></h6>
-        <h6><%= link_to "Delete Movement", @movement, method: :delete, data:{confirm: "Do you really want to delete me?"} %></h6>
-    <!-- end -->
+        <!-- if current_user.id == @movement.id -->
+            <h6 class="w3-text-blue"><%= link_to 'Organize Protest for this Movement', new_movement_protest_path(@movement, @protest) %></h6>
+            <h6 class="w3-text-blue"><%= link_to 'View All Protests', movement_protests_path(@movement) %></h6>
+            <h6><%= link_to 'Edit Movement', edit_movement_path(@movement) %></h6>
+            <h6><%= link_to "Delete Movement", @movement, method: :delete, data:{confirm: "Do you really want to delete me?"} %></h6>
+        <!-- end -->
     </div>
 
 </body>
- <!-- I only want the user to see the edit/delete links if the movement belongs to them -->
+ 
 
 
 

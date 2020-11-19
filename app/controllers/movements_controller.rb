@@ -60,7 +60,7 @@ class MovementsController < ApplicationController
         end 
 
         def movement_params 
-            params.require(:movement).permit(:name, :yr_started, :description, protests_attributes: [:name, :location, :date, :user_id, :movement_id, :certify])
+            params.require(:movement).permit(:id,:name, :yr_started, :description, protests_attributes: [:id, :name, :location, :date, :movement_id, :user_id, :certify])
         end 
 
 end 
